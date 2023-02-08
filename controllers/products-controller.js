@@ -9,7 +9,7 @@ const getAllProducts = async function(req, res) {
 
 const getProductAddform = async function(req, res) {
     let admin = req.session.user
-    res.render('forms/addproduct',{data});
+    res.render('forms/addproduct',{admin});
 }
 
 const addProduct = async function(req, res) {
@@ -48,6 +48,23 @@ const getProductById = async function(req, res) {
 }
 
 
+const getProductBookform = async function(req, res) {
+    let id = req.params.id
+    let data = await db.get().collection('products').findOne({ _id: ObjectId(id) })
+    console.log(data);
+    res.render('forms/bookap', { data });
+}
+
+const bookAppo = async function(req, res) {
+    let data = req.body
+    console.log(data);
+    await db.get().collection('appo').insertOne(data);
+    let appodata = await db.get().collection('products').find().toArray
+    console.log(appodata);
+    res.render('pages/product', { data })
+}
+
+
 exports.getAllProducts = getAllProducts;
 exports.getProductAddform = getProductAddform;
 exports.addProduct = addProduct;
@@ -55,3 +72,4 @@ exports.getProductEditform = getProductEditform;
 exports.editProduct = editProduct;
 exports.deleteProduct = deleteProduct;
 exports.getProductById = getProductById;
+exports.getProductBookform = getProductBookform;

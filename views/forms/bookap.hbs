@@ -1,0 +1,40 @@
+<div class="center">
+
+    <div class="">
+
+        <form action="/products/bookap" method="post"
+            class=" p-4 w-full max-w-sm bg-white rounded-lg shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+            <div class="space-y-6">
+                <h5 class="text-xl font-medium text-gray-900 dark:text-white">Book Appointment</h5>
+                <div>
+                    <label for="pname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                   {{data.name}} </label>
+                </div>
+                <div>
+                    <label for="pname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                   Desc:- {{data.sdes}} </label>
+                </div>
+                <div>
+                    <label for="pname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                   Fee:- {{data.price}} </label>
+                </div>
+                {{!-- <div>
+                    <label for="pname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                   {{data.name}} </label>
+                </div> --}}
+
+
+                <div>
+                    
+                    <img src="{{data.image}}" alt="">
+                </div>
+
+                <button type="submit"
+                    class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Book Appoinment </button>
+
+            </div>
+        </div>
+    </div>
+
+</div>

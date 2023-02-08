@@ -5,7 +5,8 @@ const getDashboard = async function(req, res) {
     let admin = req.session.user
     console.log(" sggsg");
     console.log(admin.user._id);
-    let data = await db.get().collection('products').find({name:admin.user.name}).toArray()
+    let data = await db.get().collection('products').find({ldes:admin.user._id}).toArray()
+    console.log(data);
     res.render('pages/admin/dashboard', { data, user: admin, admlg: true })
 }
 
